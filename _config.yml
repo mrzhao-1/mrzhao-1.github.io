@@ -1,0 +1,93 @@
+# ============================================================
+# 赵虎的个人技术主页配置
+# 改动说明：这是赵虎的 GitHub Pages 站点，用 Minimal Mistakes 主题。
+# 改完本文件后，推送到 GitHub 会自动重新构建网站。
+# ============================================================
+
+# --- 站点设置 ---
+title: "赵虎 · 存储与云原生"
+email:
+description: "8年企业级存储系统开发经验，聚焦 Kubernetes 存储(CSI) 与云原生基础设施。记录存储、Linux、云原生方向的技术实践。"
+github_username: mrzhao-1
+repository: "mrzhao-1/mrzhao-1.github.io"
+minimal_mistakes_skin: default
+search: true
+
+# --- 构建设置 ---
+markdown: kramdown
+remote_theme: mmistakes/minimal-mistakes
+
+# 文章链接格式
+permalink: /:categories/:title/
+paginate: 5
+paginate_path: /page:num/
+timezone:
+
+include:
+  - _pages
+
+plugins:
+  - jekyll-paginate
+  - jekyll-sitemap
+  - jekyll-gist
+  - jekyll-feed
+  - jemoji
+  - jekyll-include-cache
+
+# --- 作者信息（显示在每页左侧侧边栏） ---
+author:
+  name   : "赵虎"
+  # 想显示头像时，把一张自己的照片放到 assets/images/bio-photo.jpg，然后取消下面这行注释
+  avatar : "/assets/images/红衣boy.jpg"
+  bio    : "我不假装永远坚定，只希望每一次记录都足够诚实。\n不能留驻的，时间一定会让它成为台阶。\n如果你也正在路上，欢迎偶尔停下来，读几行字，再继续走。\n从事8年企业级存储系统开发。\n前五年 NFS 协议栈和NAS形态开发，后三年研发基础设施与 CI/CD。\n现聚焦 Kubernetes 存储(CSI)方向。"
+  links:
+    - label: "GitHub"
+      icon: "fab fa-fw fa-github"
+      url: "https://github.com/mrzhao-1"
+
+# --- 页脚链接 ---
+footer:
+  links:
+    - label: "GitHub"
+      icon: "fab fa-fw fa-github"
+      url: "https://github.com/mrzhao-1"
+
+# --- 默认布局 ---
+defaults:
+  # 博客文章
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: single
+      author_profile: true
+      read_time: true
+      comments: true
+      share: true
+      related: true
+  # 独立页面（项目、关于等）
+  - scope:
+      path: "_pages"
+      type: pages
+    values:
+      layout: single
+      author_profile: true
+
+# --- 评论（giscus，留言存 GitHub Discussions，访客需登录 GitHub）---
+comments:
+  provider: "giscus"
+  giscus:
+    repo_id: "R_kgDOUIn0_w"              # 仓库唯一 ID
+    category_name: "General"             # 存放评论的 Discussions 分类
+    category_id: "DIC_kwDOUIn0_84DFk1m"  # 分类唯一 ID
+    discussion_term: "pathname"          # 每篇文章按 URL 开独立讨论串
+    reactions_enabled: "1"               # 开启点赞表情
+    theme: "light"                       # 浅色，跟站点一致
+    lang: "zh-CN"                        # 评论界面中文
+
+category_archive:
+  type: liquid
+  path: /categories/
+tag_archive:
+  type: liquid
+  path: /tags/

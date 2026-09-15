@@ -1,0 +1,194 @@
+[
+  {
+    "name": "nfs-csi-driver",
+    "description": "Kubernetes NFS CSI driver with dynamic provisioning and multi-node mount",
+    "html_url": "https://github.com/mrzhao-1/nfs-csi-driver",
+    "fork": false,
+    "language": "Go",
+    "stargazers_count": 0,
+    "updated_at": "2026-09-12T09:15:33Z",
+    "topics": [
+      "cloud-native-storage",
+      "csi",
+      "kubernetes",
+      "nfs",
+      "storage"
+    ]
+  },
+  {
+    "name": "nfs-share-operator",
+    "description": "Kubernetes Operator that declaratively manages NFS shares into PersistentVolumes",
+    "html_url": "https://github.com/mrzhao-1/nfs-share-operator",
+    "fork": false,
+    "language": "Go",
+    "stargazers_count": 0,
+    "updated_at": "2026-09-12T09:15:34Z",
+    "topics": [
+      "controller-runtime",
+      "devops",
+      "kubernetes",
+      "nfs",
+      "operator"
+    ]
+  },
+  {
+    "name": "deviops",
+    "description": "",
+    "html_url": "https://github.com/mrzhao-1/deviops",
+    "fork": true,
+    "language": "Go",
+    "stargazers_count": 1,
+    "updated_at": "2026-08-30T09:23:51Z",
+    "topics": []
+  },
+  {
+    "name": "dive",
+    "description": "A tool for exploring each layer in a docker image",
+    "html_url": "https://github.com/mrzhao-1/dive",
+    "fork": true,
+    "language": "Go",
+    "stargazers_count": 0,
+    "updated_at": "2026-09-07T12:47:26Z",
+    "topics": []
+  },
+  {
+    "name": "docker-redmine",
+    "description": "Docker Image for Redmine",
+    "html_url": "https://github.com/mrzhao-1/docker-redmine",
+    "fork": true,
+    "language": "Shell",
+    "stargazers_count": 1,
+    "updated_at": "2026-08-30T09:24:05Z",
+    "topics": []
+  },
+  {
+    "name": "filebrowser",
+    "description": "📂 Web File Browser",
+    "html_url": "https://github.com/mrzhao-1/filebrowser",
+    "fork": true,
+    "language": "Go",
+    "stargazers_count": 1,
+    "updated_at": "2026-08-30T09:24:00Z",
+    "topics": []
+  },
+  {
+    "name": "filestash",
+    "description": ":file_folder: The Dropbox like web client for SFTP, S3, FTP, WebDAV, Git, Minio, LDAP, CalDAV, CardDAV, Mysql, Backblaze, ...",
+    "html_url": "https://github.com/mrzhao-1/filestash",
+    "fork": true,
+    "language": "Go",
+    "stargazers_count": 1,
+    "updated_at": "2026-08-30T09:23:55Z",
+    "topics": []
+  },
+  {
+    "name": "git-credential-manager",
+    "description": "Secure, cross-platform Git credential storage with authentication to GitHub, Azure Repos, and other popular Git hosting services.",
+    "html_url": "https://github.com/mrzhao-1/git-credential-manager",
+    "fork": true,
+    "language": "C#",
+    "stargazers_count": 1,
+    "updated_at": "2026-08-30T09:24:02Z",
+    "topics": []
+  },
+  {
+    "name": "iF.SVNAdmin",
+    "description": "Web-based GUI to manage Subversion repositories and User/Group permissions (+LDAP support)",
+    "html_url": "https://github.com/mrzhao-1/iF.SVNAdmin",
+    "fork": true,
+    "language": "PHP",
+    "stargazers_count": 1,
+    "updated_at": "2026-08-30T09:24:06Z",
+    "topics": []
+  },
+  {
+    "name": "juju",
+    "description": "Orchestration engine that enables the deployment, integration and lifecycle management of applications at any scale, on any infrastructure (Kubernetes or otherwise).",
+    "html_url": "https://github.com/mrzhao-1/juju",
+    "fork": true,
+    "language": "Go",
+    "stargazers_count": 1,
+    "updated_at": "2026-08-30T09:23:50Z",
+    "topics": []
+  },
+  {
+    "name": "kubernetes-sandbox-environment",
+    "description": "Fully isolated Kubernetes environment (container level via VS Code DevContainer), for try and test components of the Kubernetes ecosystem",
+    "html_url": "https://github.com/mrzhao-1/kubernetes-sandbox-environment",
+    "fork": true,
+    "language": "Shell",
+    "stargazers_count": 0,
+    "updated_at": "2026-09-07T12:46:55Z",
+    "topics": []
+  },
+  {
+    "name": "minimal-mistakes",
+    "description": ":triangular_ruler: Jekyll theme for building a personal site, blog, project documentation, or portfolio.",
+    "html_url": "https://github.com/mrzhao-1/minimal-mistakes",
+    "fork": true,
+    "language": "HTML",
+    "stargazers_count": 1,
+    "updated_at": "2026-08-30T09:23:53Z",
+    "topics": []
+  },
+  {
+    "name": "redmine_auto_assign_group",
+    "description": "Redmine Auto Assign Group Plugin",
+    "html_url": "https://github.com/mrzhao-1/redmine_auto_assign_group",
+    "fork": true,
+    "language": "Ruby",
+    "stargazers_count": 1,
+    "updated_at": "2026-08-30T09:24:14Z",
+    "topics": []
+  },
+  {
+    "name": "redmine_gitlab_hook",
+    "description": "This plugin allows you to update your local Git repositories in Redmine when changes have been pushed to GitLab.",
+    "html_url": "https://github.com/mrzhao-1/redmine_gitlab_hook",
+    "fork": true,
+    "language": "Ruby",
+    "stargazers_count": 1,
+    "updated_at": "2026-08-30T09:24:12Z",
+    "topics": []
+  },
+  {
+    "name": "rsync-static",
+    "description": "Static RSync binaries compiled for x86, ARM, and ARM64. Useful for running on Android. Built daily",
+    "html_url": "https://github.com/mrzhao-1/rsync-static",
+    "fork": true,
+    "language": "Shell",
+    "stargazers_count": 1,
+    "updated_at": "2026-08-30T09:24:12Z",
+    "topics": []
+  },
+  {
+    "name": "vscode",
+    "description": "Visual Studio Code",
+    "html_url": "https://github.com/mrzhao-1/vscode",
+    "fork": true,
+    "language": "TypeScript",
+    "stargazers_count": 1,
+    "updated_at": "2026-08-30T09:23:49Z",
+    "topics": []
+  },
+  {
+    "name": "vscode-rsp-ui",
+    "description": "A unified UI for all RSP servers  and RSP server-providers to integrate with",
+    "html_url": "https://github.com/mrzhao-1/vscode-rsp-ui",
+    "fork": true,
+    "language": "TypeScript",
+    "stargazers_count": 1,
+    "updated_at": "2026-08-30T09:24:16Z",
+    "topics": []
+  },
+  {
+    "name": "zfs",
+    "description": "OpenZFS on Linux and FreeBSD",
+    "html_url": "https://github.com/mrzhao-1/zfs",
+    "fork": true,
+    "language": "C",
+    "stargazers_count": 1,
+    "updated_at": "2026-08-30T09:24:01Z",
+    "topics": []
+  }
+]
