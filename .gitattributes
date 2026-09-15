@@ -1,0 +1,6 @@
+# 快照文件固定用 LF 换行。脚本（本地和 Actions）生成的也是 LF，
+# 固定之后 Windows 上执行 node scripts/update-repos.mjs 不会出现整文件换行符差异。
+assets/data/repos.json text eol=lf
+
+# 脚本本身也固定 LF，避免 Windows 本地编辑时工作区行尾在 CRLF/LF 之间来回变。
+scripts/update-repos.mjs text eol=lf

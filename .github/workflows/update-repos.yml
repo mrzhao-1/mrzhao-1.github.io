@@ -1,0 +1,48 @@
+name: 更新项目页快照
+
+# 作用：定时重新生成 assets/data/repos.json，让项目页始终显示最新的仓库列表。
+#
+# 为什么放在这里跑而不是浏览器里跑：
+#   浏览器端调 GitHub API 有两个绕不开的限制，未认证时每小时只有 60 次额度，而且按 IP 算，
+#   多人共用一个出口 IP 很快见底；部分网络环境下 api.github.com 也不一定能连通。
+#   Actions 跑在 GitHub 自己的服务器上，内网直连 API，额度 5000 次/小时，稳定得多。
+#
+# 手动触发：仓库页面 Actions 标签页 -> 左侧「更新项目页快照」-> Run workflow
+
+on:
+  schedule:
+    # 每天 01:23 UTC（北京时间 09:23）自动执行一次
+    - cron: '23 1 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  update-snapshot:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 检出仓库
+        uses: actions/checkout@v4
+
+      - name: 准备 Node 环境
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: 重新生成项目页快照
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: node scripts/update-repos.mjs
+
+      - name: 有变化就提交
+        run: |
+          if git diff --quiet -- assets/data/repos.json; then
+            echo "快照没有变化，跳过提交。"
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets/data/repos.json
+          git commit -m "自动刷新项目页快照"
+          git push
