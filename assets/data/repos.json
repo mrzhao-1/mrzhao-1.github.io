@@ -1,5 +1,15 @@
 [
   {
+    "name": "microservices-lab",
+    "description": "microservices lab: go-zero + go-kratos + go-micro, Vue3 frontend + nginx",
+    "html_url": "https://github.com/mrzhao-1/microservices-lab",
+    "fork": false,
+    "language": "Go",
+    "stargazers_count": 0,
+    "updated_at": "2026-09-16T14:20:48Z",
+    "topics": []
+  },
+  {
     "name": "nfs-csi-driver",
     "description": "Kubernetes NFS CSI driver with dynamic provisioning and multi-node mount",
     "html_url": "https://github.com/mrzhao-1/nfs-csi-driver",
