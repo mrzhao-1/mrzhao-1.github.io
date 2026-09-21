@@ -45,5 +45,3 @@ Logstash 的价值在解析：把 Filebeat 采上来的原始 JSON 拆成结构�
 ## 四、小结
 
 这套链路搭起来后，日志从散落在各节点变成集中可查，按 `app.level`、命名空间都能筛。核心是先把链路选对（加 Kafka 缓冲），再用官方 Operator 降低部署复杂度，剩下的坑主要落在版本兼容和 mapping 上。
-
-完整部署和排障文档在：[elk-on-kubernetes](https://github.com/mrzhao-1/elk-on-kubernetes)
