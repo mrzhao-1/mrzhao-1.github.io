@@ -1,5 +1,23 @@
 [
   {
+    "name": "elk-on-kubernetes",
+    "description": "ELK logging stack on Kubernetes: ECK + Strimzi Kafka + Logstash + Filebeat",
+    "html_url": "https://github.com/mrzhao-1/elk-on-kubernetes",
+    "fork": false,
+    "language": null,
+    "stargazers_count": 0,
+    "updated_at": "2026-09-21T06:14:27Z",
+    "topics": [
+      "elasticsearch",
+      "elk",
+      "filebeat",
+      "kafka",
+      "kubernetes",
+      "logging",
+      "logstash"
+    ]
+  },
+  {
     "name": "microservices-lab",
     "description": "microservices lab: go-zero + go-kratos + go-micro, Vue3 frontend + nginx",
     "html_url": "https://github.com/mrzhao-1/microservices-lab",
