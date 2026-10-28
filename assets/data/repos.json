@@ -80,6 +80,16 @@
     "topics": []
   },
   {
+    "name": "docker-golang-dev",
+    "description": "Setup a Golang dev environment in a Docker image",
+    "html_url": "https://github.com/mrzhao-1/docker-golang-dev",
+    "fork": true,
+    "language": "Go",
+    "stargazers_count": 0,
+    "updated_at": "2026-10-28T03:24:37Z",
+    "topics": []
+  },
+  {
     "name": "docker-redmine",
     "description": "Docker Image for Redmine",
     "html_url": "https://github.com/mrzhao-1/docker-redmine",
@@ -157,6 +167,16 @@
     "language": "Go",
     "stargazers_count": 1,
     "updated_at": "2026-08-30T09:23:50Z",
+    "topics": []
+  },
+  {
+    "name": "kratos",
+    "description": "Your ultimate Go microservices framework for the cloud-native era.",
+    "html_url": "https://github.com/mrzhao-1/kratos",
+    "fork": true,
+    "language": "Go",
+    "stargazers_count": 0,
+    "updated_at": "2026-10-28T03:31:18Z",
     "topics": []
   },
   {
