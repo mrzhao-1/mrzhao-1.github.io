@@ -250,6 +250,16 @@
     "topics": []
   },
   {
+    "name": "zero-doc",
+    "description": "The docs for go-zero",
+    "html_url": "https://github.com/mrzhao-1/zero-doc",
+    "fork": true,
+    "language": "JavaScript",
+    "stargazers_count": 0,
+    "updated_at": "2026-10-29T01:52:29Z",
+    "topics": []
+  },
+  {
     "name": "zfs",
     "description": "OpenZFS on Linux and FreeBSD",
     "html_url": "https://github.com/mrzhao-1/zfs",
