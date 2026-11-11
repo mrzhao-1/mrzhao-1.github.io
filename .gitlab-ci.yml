@@ -11,5 +11,6 @@ pages:
   artifacts:
     paths:
       - public
+    when: never  # 告诉 Runner 永远不要上传这些产物
   rules:
     - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
