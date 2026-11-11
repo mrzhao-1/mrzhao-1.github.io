@@ -1,0 +1,10 @@
+# 本地开发/默认占位，会被 CI 流水线覆盖
+baseURL = "/"
+languageCode = "zh-cn"
+title = "我的个人空间"
+theme = "github-style"
+
+[params]
+  author = "你的名字"
+  description = "你的个人描述"
+  github = "你的GitHub用户名"
