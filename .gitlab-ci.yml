@@ -1,0 +1,15 @@
+image: hugomods/hugo:exts
+
+variables:
+  GIT_SUBMODULE_STRATEGY: recursive # 确保主题子模块被拉取
+
+pages:
+  stage: deploy
+  script:
+    # --baseURL 会覆盖 hugo.toml 中的占位值
+    - hugo --minify --baseURL "${CI_PAGES_URL}"
+  artifacts:
+    paths:
+      - public
+  rules:
+    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
