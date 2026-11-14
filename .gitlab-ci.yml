@@ -8,9 +8,9 @@ pages:
   script:
     # --baseURL 会覆盖 hugo.toml 中的占位值
     - hugo --minify --baseURL "${CI_PAGES_URL}"
-  #artifacts:
-  #  paths:
-  #    - public
+  artifacts:
+    paths:
+      - public
   #  when: never  # 告诉 Runner 永远不要上传这些产物
   rules:
     - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
