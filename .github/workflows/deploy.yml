@@ -1,0 +1,72 @@
+# 部署到 GitHub Pages
+# 与 .gitlab-ci.yml 中的 GitLab Pages 部署并行存在，二者互不影响。
+name: Deploy to GitHub Pages
+
+on:
+  # 推送到主分支时自动部署（GitLab 侧对应 $CI_DEFAULT_BRANCH = master）
+  push:
+    branches:
+      - master
+  # 允许在 GitHub 的 Actions 页面手动触发
+  workflow_dispatch:
+
+# 授予 Pages 部署所需的权限
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# 同一时间只保留一个部署任务，避免并发冲突
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        # 不自动更新子模块：.gitmodules 指向内网 GitLab 镜像，GitHub 无法访问
+
+      - name: Init submodule (GitHub source)
+        run: |
+          git submodule init
+          # 仅覆盖本机 .git/config 中的子模块地址为 GitHub 源，不改动 .gitmodules
+          git config submodule.themes/github-style.url https://github.com/MeiK2333/github-style.git
+          git submodule update --recursive
+
+      - name: Setup Hugo
+        uses: peaceiris/actions-hugo@v3
+        with:
+          hugo-version: latest
+          extended: true          # 主题需要扩展版（SCSS 编译）
+
+      - name: Configure Pages
+        id: pages
+        uses: actions/configure-pages@v5
+
+      - name: Build
+        run: |
+          # 自动取 GitHub Pages 的 baseURL，并确保以 / 结尾（用户站点/项目站点都适用）
+          BASE_URL="${{ steps.pages.outputs.base_url }}"
+          hugo --minify --baseURL "${BASE_URL%/}/"
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./public
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
