@@ -1,8 +1,15 @@
+
 image: hugomods/hugo:exts
 
 variables:
   GIT_SUBMODULE_STRATEGY: recursive # 确保主题子模块被拉取
 
+# 定义了两个阶段，先部署主页，后执行 Word 导出。
+stages:
+  - deploy
+  - export
+
+# 1. 部署主页网站（作业名必须叫 pages）
 pages:
   stage: deploy
   script:
@@ -11,6 +18,29 @@ pages:
   artifacts:
     paths:
       - public
-    when: never  # 告诉 Runner 永远不要上传这些产物
+  #  when: never  # 告诉 Runner 永远不要上传这些产物
+  rules:
+    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
+
+# 2. 导出 Markdown 为 Word 文档
+export-to-word:
+  stage: export
+  image: klakegg/hugo:pandoc
+  script:
+    - mkdir -p word-exports
+    # 遍历 content 目录下的 md 文件进行转换
+    - find content -name "*.md" | while read file; do
+        filename=$(basename "$file" .md);
+        echo "Converting $file to Word...";
+        pandoc "$file" --from=gfm --to docx --output "word-exports/${filename}.docx";
+      done
+  
+  #把 content/ 下的 Markdown 转换后，打包成 word-exports 工件。可以在流水线页面
+  # 的右侧点击 “浏览产物 (Browse artifacts)” 下载这些 Word 文件。
+  artifacts:
+    name: "word-documents-$CI_PIPELINE_ID"
+    paths:
+      - word-exports/
+    expire_in: 1 week
   rules:
     - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
