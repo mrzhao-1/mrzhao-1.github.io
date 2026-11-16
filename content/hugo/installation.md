@@ -157,7 +157,7 @@ Hugo 的配置支持按环境（development/production）与按输出类型（ou
 
 ```toml
 [params]
-  author = "zhaohu"
+  author = "xiaofengsheng"
   description = "个人博客"
 
 [outputs]

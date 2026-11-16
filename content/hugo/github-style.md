@@ -167,7 +167,7 @@ summary = ""
 title = "我的第一篇文章"
 date = 2026-11-15T08:46:47+08:00
 draft = false
-author = "zhaohu"
+author = "xiaofengsheng"
 keywords = ["hugo", "github-style", "theme"]
 cover = "https://example.com/cover.png"
 summary = "这是文章的摘要，会显示在列表页与 SEO 描述中。"
@@ -275,7 +275,7 @@ mathJax = false
   "title": "文章标题",
   "summary": "摘要",
   "content": "正文纯文本（截断到 5000 字符）",
-  "authors": ["zhaohu"],
+  "authors": ["xiaofengsheng"],
   "kind": "page",
   "type": "post",
   "section": "post",
@@ -300,7 +300,7 @@ mathJax = false
 
 ```toml
 [params]
-  author = "zhaohu"
+  author = "xiaofengsheng"
   description = "你的个人描述"
   location = "China"
   email = "you@example.com"
