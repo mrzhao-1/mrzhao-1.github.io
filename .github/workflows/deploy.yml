@@ -31,7 +31,8 @@ jobs:
         #-------------------------------------#
         #uses: actions/checkout@v4
         uses: actions/checkout@v5
-        # 不自动更新子模块：.gitmodules 指向内网 GitLab 镜像，GitHub 无法访问
+        with:
+          submodules: false   # 关键：不在 checkout 阶段拉取子模块，交给下一步用 GitHub 源覆盖
         #-------------------------------------#
       - name: Init submodule (GitHub source)
         run: |
@@ -59,7 +60,7 @@ jobs:
       - name: Upload artifact
         #-------------------------------------#
         #uses: actions/upload-pages-artifact@v3
-        uses: actions/upload-artifact@v5
+        uses: actions/upload-pages-artifact@v3   # 必须是 upload-pages-artifact（非通用 upload-artifact），deploy-pages 才能识别
         #-------------------------------------#
         with:
           path: ./public
