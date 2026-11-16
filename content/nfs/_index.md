@@ -8,7 +8,7 @@ summary = "NFS 技术系列文档的总目录，涵盖协议基础、NFSv4 状�
 tags = ["nfs", "guide"]
 +++
 
-# NFS 技术系列
+# NFS 技术和维护
 
 这里是 NFS 技术系列文档的总目录。整体介绍与各模块入口见 [总览与主文档]({{< ref "/post/nfs-guide" >}})。
 
