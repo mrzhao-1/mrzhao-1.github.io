@@ -1,10 +1,58 @@
 # 本地开发/默认占位，会被 CI 流水线覆盖
 baseURL = "/"
 languageCode = "zh-cn"
-title = "我的个人空间"
+title = "myspace"
 theme = "github-style"
+pygmentsCodeFences = true
+pygmentsUseClasses = true
+paginate = 10
 
 [params]
-  author = "你的名字"
-  description = "你的个人描述"
-  github = "你的GitHub用户名"
+  author = "啸风生"
+  description = "千岩月冷，一啸风生"
+  #github = "你的GitHub用户名"
+  #twitter = "你的Twitter用户名"
+  #facebook = "你的Facebook用户名"
+  #linkedin = "你的LinkedIn用户名"
+  #instagram = "你的Instagram用户名"
+  #tumblr = "你的Tumblr用户名"
+  #stackoverflow = "你的StackOverflow用户ID"
+  #bluesky = "你的Bluesky用户名"
+  email = "zhaohucc@163.com"
+  url = "https://example.com"
+  keywords = "blog, hugo, github-style"
+  rss = true
+  lastmod = true
+  favicon = "/images/github-mark.png"
+  avatar = "/images/瑕.png"
+  headerIcon = "/images/github-mark-white.png"
+  location = "China"
+  userStatusEmoji = "😀"
+  #enableGitalk = true
+  enableSearch = true
+  custom_css = ["css/custom.css"]
+  custom_js = ["js/custom.js"]
+  defer_custom_js = ["js/defer_custom.js"]
+
+  [[params.links]]
+    title = "Link"
+    href = "https://github.com/zhaohu-1"
+  [[params.links]]
+    title = "Link2"
+    href = "https://mrzhao-1.github.io/"
+    icon = "https://example.com/images/avatar.png"
+
+[outputs]
+  home = ["html", "json"]
+
+[outputFormats.json]
+  mediaType = "application/json"
+  baseName = "index"
+  isPlainText = false
+
+[frontmatter]
+  lastmod = ["lastmod", ":fileModTime", ":default"]
+
+[services]
+  [services.googleAnalytics]
+    ID = "UA-123456-789"
