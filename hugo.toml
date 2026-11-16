@@ -30,6 +30,7 @@ paginate = 10
   userStatusEmoji = "😀"
   #enableGitalk = true
   enableSearch = true
+  enableVssue = true
   custom_css = ["css/custom.css"]
   custom_js = ["js/custom.js"]
   defer_custom_js = ["js/defer_custom.js"]
@@ -41,6 +42,13 @@ paginate = 10
     title = "Link2"
     href = "https://mrzhao-1.github.io/"
     icon = "https://example.com/images/avatar.png"
+
+  [params.vssue]
+    platform = "github"
+    owner = "your-github-username"
+    repo = "your-comments-repo"
+    clientId = "your-client-id"
+    clientSecret = "your-client-secret"
 
 [outputs]
   home = ["html", "json"]

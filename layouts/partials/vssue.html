@@ -1,0 +1,30 @@
+{{ if .Site.Params.enableVssue }}
+<div class="container-lg px-3 my-4">
+  <div class="Box">
+    <div class="Box-header">
+      <h3 class="Box-title">评论</h3>
+    </div>
+    <div class="Box-body p-4">
+      <div id="vssue"></div>
+    </div>
+  </div>
+</div>
+
+<link rel="stylesheet" href="https://unpkg.com/vssue/dist/vssue.min.css">
+<script src="https://unpkg.com/vue@2.7.14/dist/vue.runtime.min.js"></script>
+<script src="https://unpkg.com/vssue/dist/vssue.{{ .Site.Params.vssue.platform }}.min.js"></script>
+<script>
+  var vssueOptions = {{ dict "owner" .Site.Params.vssue.owner "repo" .Site.Params.vssue.repo "clientId" .Site.Params.vssue.clientId "clientSecret" .Site.Params.vssue.clientSecret | jsonify | safeJS }};
+  new Vue({
+    el: '#vssue',
+    render: function (h) {
+      return h('Vssue', {
+        props: {
+          title: {{ .Title | jsonify | safeJS }},
+          options: vssueOptions
+        }
+      });
+    }
+  });
+</script>
+{{ end }}
