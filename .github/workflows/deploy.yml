@@ -23,12 +23,16 @@ concurrency:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    # 处理警告： ubuntu-latest label will migrate to Ubuntu 26
+    runs-on: ubuntu-26.04  #ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        # 处理警告：Node.js 20 is deprecated
+        #-------------------------------------#
+        #uses: actions/checkout@v4
+        uses: actions/checkout@v5
         # 不自动更新子模块：.gitmodules 指向内网 GitLab 镜像，GitHub 无法访问
-
+        #-------------------------------------#
       - name: Init submodule (GitHub source)
         run: |
           git submodule init
@@ -53,13 +57,17 @@ jobs:
           hugo --minify --baseURL "${BASE_URL%/}/"
 
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
+        #-------------------------------------#
+        #uses: actions/upload-pages-artifact@v3
+        uses: actions/upload-artifact@v5
+        #-------------------------------------#
         with:
           path: ./public
 
   deploy:
     needs: build
-    runs-on: ubuntu-latest
+    # 处理警告： ubuntu-latest label will migrate to Ubuntu 26
+    runs-on: ubuntu-26.04  #ubuntu-latest
     permissions:
       pages: write
       id-token: write
@@ -69,4 +77,7 @@ jobs:
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v4
+        #-------------------------------------#
+        #uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@v5
+        #-------------------------------------#
