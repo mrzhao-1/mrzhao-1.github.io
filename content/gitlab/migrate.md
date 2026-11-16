@@ -99,6 +99,25 @@ git push --set-upstream origin main
 
 对公共开源项目做镜像时，若导入不完整，可先 `git clone --mirror` 公共仓库到目标路径，再定期 `remote update` 同步。
 
+### 3.4 常见导入问题
+
+- **"No import options available"**：导入功能未启用或未配置。管理员需在 Admin 开启导入选项；从 GitHub 导入需先在 GitHub 生成 Personal Access Token（勾选 `repo` 权限）。
+
+- **SSH known_hosts 权限错误**（`hostkeys_find_by_key_hostfile ... Permission denied`）：Proxmox 宿主机的全局 known_hosts 符号链接导致。三种方案：
+
+  ```bash
+  # 方案一：用户级 known_hosts 覆盖（~/.ssh/config）
+  Host *
+      UserKnownHostsFile ~/.ssh/known_hosts
+      StrictHostKeyChecking accept-new
+
+  # 方案二：解除 Proxmox 符号链接
+  pvecm updatecerts --unmerge-known-hosts
+
+  # 方案三：命令行临时指定
+  ssh -o UserKnownHostsFile=~/.ssh/known_hosts -T git@gitlab.example.com
+  ```
+
 ---
 
 回到 [总览]({{< ref "/post/gitlab-guide" >}}) 查看完整文档导航，或继续阅读 [平台使用与 Redmine 集成]({{< ref "platform-usage" >}})。

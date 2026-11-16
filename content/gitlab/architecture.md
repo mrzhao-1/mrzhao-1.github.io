@@ -32,6 +32,8 @@ tags = ["gitlab", "architecture", "workflow", "io"]
 | **GitLab Runner** | 执行 CI/CD Job 的执行器 |
 | **Prometheus** | 内置监控（时序数据） |
 
+> 此外，Omnibus/Docker 环境还包含以下辅助组件：**alertmanager**（告警通知）、**gitlab-exporter** / **redis-exporter**（指标导出）、**gitlab-kas**（GitLab Agent Server）、**logrotate**（日志轮转）、**sshd**（SSH 服务）。
+
 ---
 
 ## 二、组件架构图

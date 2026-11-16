@@ -166,4 +166,19 @@ gitlab_pages['namespace_in_path'] = true
 
 ---
 
+## 十一、CI/CD 增量日志与对象存储
+
+启用「增量日志（Incremental logging）」前，必须为 CI/CD Artifacts、日志与构建配置**对象存储**（如 S3/MinIO/Ceph RGW），仅用 NFS 无法满足要求：
+
+- 增量日志原理：Runner 将日志分块发送后暂存于 Redis，作业完成后作为归档日志直接上传到对象存储。
+- NFS 只能作为本地磁盘的替代品，无法承载增量日志。
+- 若未配置对象存储，GitLab 会在设置页阻止启用该功能，报错 `Incremental logging cannot be turned on without configuring object storage for artifacts`。
+
+二选一：
+
+- **方案 A**：配置对象存储（Artifacts 桶 + 连接 Secret），启用增量日志（性能更优）。
+- **方案 B**：不勾选「Enable incremental logging」，继续用 NFS 传统方式缓存与归档日志。
+
+---
+
 回到 [总览]({{< ref "/post/gitlab-guide" >}}) 查看完整文档导航，或继续阅读 [数据备份]({{< ref "backup" >}})。

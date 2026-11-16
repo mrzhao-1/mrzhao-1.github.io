@@ -38,6 +38,15 @@ tags = ["gitlab", "docker", "install"]
    sudo chmod 755 /data/gitlab/{config,logs,data,ssl}
    ```
 
+5. **导入离线镜像**（内网无法直接拉取时）：先在有外网的机器 `docker save` 导出，再在目标机 `docker import`：
+
+   ```bash
+   # 导出（有外网的机器）
+   docker save -o gitlab-ce_18.1.2-ce.0.tar gitlab/gitlab-ce:18.1.2-ce.0
+   # 导入（内网目标机）
+   docker import /path/to/gitlab-ce_18.1.2-ce.0.tar gitlab-ce:18.1.2-ce.0
+   ```
+
 ---
 
 ## 二、docker-compose 配置
@@ -164,6 +173,16 @@ docker update --restart=always gitlab
 ```
 
 **数据库表已存在 / 字段重复**：多为版本兼容问题，换用与目标版本匹配的镜像可规避。
+
+**数据库表 / 关系不存在**（如 `relation "ci_pipelines" does not exist`、`relation "ci_job_artifacts" does not exist`）：多为官方 bug 或 CI 库未正确初始化，换用与目标版本匹配的镜像部署通常可规避。
+
+**用户登录后 500 报错**：多为数据库关系未升级。执行 `gitlab-rake db:migrate:status` 检查迁移状态，再 `gitlab-rake db:migrate`、`gitlab-ctl reconfigure`、`gitlab-ctl restart` 补齐数据库关系。
+
+**OpenSSL::Cipher::CipherError 堆栈错误**：进入 `gitlab-psql` 登录 `gitlabhq_production` 库，重置 runner token 即可：
+
+```sql
+UPDATE projects SET runners_token = null, runners_token_encrypted = null;
+```
 
 ---
 

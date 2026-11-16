@@ -107,6 +107,7 @@ su -- git -c "/opt/gitlab/embedded/bin/git \
 - `fatal: not a git repository`：`--git-dir` 路径错误或权限不足。
 - `fatal: refusing to update checked out branch`：裸仓库默认拒绝直接改当前分支，用 `update-ref` 代替。
 - 远程地址丢失：`git remote set-url origin <url>` 重新设置。
+- **Mirror direction 只能 push**：GitLab CE 的镜像方向仅支持 push，无法从 GitHub 拉取同步。改用普通仓库同步方式（`git fetch` + `update-ref`）替代。
 
 ---
 

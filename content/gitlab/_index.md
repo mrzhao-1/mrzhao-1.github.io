@@ -18,6 +18,7 @@ tags = ["gitlab", "devops", "运维"]
 - [架构与 IO 流程]({{< ref "architecture" >}}) —— 组件架构图、数据流与管理/业务流程。
 - [功能全景与版本沿革]({{< ref "features" >}}) —— 全部功能分类与版本沿革。
 - [Merge Request 全流程]({{< ref "merge-request" >}}) —— 从编辑提交到合并发布的完整业务流。
+- [进阶：高可用与高级功能]({{< ref "advanced" >}}) —— 数据库高可用、Gitaly Raft、ES 替代、模板仓库。
 - [安装 · Omnibus 部署]({{< ref "install-omnibus" >}}) —— 传统 Linux 包安装方式。
 - [安装 · Docker 部署]({{< ref "install-docker" >}}) —— 容器环境部署与数据持久化。
 - [安装 · Kubernetes 部署]({{< ref "install-k8s" >}}) —— Helm Chart + 对象存储 + 外部服务。
