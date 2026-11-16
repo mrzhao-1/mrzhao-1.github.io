@@ -13,8 +13,33 @@ tags = ["k8s", "kubernetes", "install", "certificate"]
 本文介绍 Kubernetes 二进制安装方式中的软件包下载与证书生成。二进制安装方式需手动下载各组件二进制，并用 cfssl 生成整套 TLS 证书。
 
 > 版本示例：k8s v1.32.0、etcd v3.5.17、cfssl v1.6.4。所有 IP、域名、主机名均为占位符。
+>
+> 参考来源：[cby-chen/Kubernetes 二进制离线安装](https://github.com/cby-chen/Kubernetes)
 
 <!--more-->
+
+---
+
+## 零、目录规划与 PATH
+
+按参考方案，将可独立使用的软件包和配置文件统一安装到 `/opt` 目录，后续迁移时把 `/opt` 挂载专用目录，服务单元文件与系统文件用软连接挂接到 systemd 指定目录：
+
+```bash
+# 解压后的二进制放到 /opt/kubernetes/bin、/opt/etcd/bin 等
+# /etc/profile 中追加 PATH：
+containerd_bin=/opt/containerd/bin
+crictl_bin=/opt/crictl/bin
+etcd_bin=/opt/etcd/bin
+kubernetes_bin=/opt/kubernetes/bin
+PATH=${containerd_bin}:${crictl_bin}:${etcd_bin}:${kubernetes_bin}:$PATH
+
+source /etc/profile
+```
+
+在 `/etc/sudoers` 的 `secure_path` 中追加：
+`/opt/containerd/bin:/opt/crictl/bin:/opt/etcd/bin:/opt/kubernetes/bin:/opt/docker/bin`
+
+> 环境配好后，建议用 `btrfs subvolume snapshot / /@snapshots/@rootfs-xxx` 打快照，便于回滚。
 
 ---
 
@@ -25,15 +50,24 @@ tags = ["k8s", "kubernetes", "install", "certificate"]
 wget https://mirrors.example.com/etcd/releases/download/v3.5.17/etcd-v3.5.17-linux-amd64.tar.gz
 wget https://cdn.dl.k8s.io/release/v1.32.0/kubernetes-server-linux-amd64.tar.gz
 
-# 解压 k8s 组件到 /usr/local/bin
+# 解压 k8s 组件（--strip-components=3 忽略前三级目录，直接提取二进制）
+mkdir -p /opt/kubernetes/bin
 tar -xf kubernetes-server-linux-amd64.tar.gz --strip-components=3 \
-  -C /usr/local/bin kubernetes/server/bin/kube{let,ctl,-apiserver,-controller-manager,-scheduler,-proxy}
+  -C /opt/kubernetes/bin kubernetes/server/bin/kube{let,ctl,-apiserver,-controller-manager,-scheduler,-proxy}
 
 # 解压 etcd
-tar -xf etcd-v3.5.17-linux-amd64.tar.gz
-mv etcd-v3.5.17-linux-amd64/etcd /usr/local/bin/
-mv etcd-v3.5.17-linux-amd64/etcdctl /usr/local/bin/
+mkdir -p /opt/etcd/bin
+tar -xf etcd*.tar.gz && mv etcd-*/etcd /opt/etcd/bin && mv etcd-*/etcdctl /opt/etcd/bin
+
+# 验证版本
+kubelet --version
+etcdctl version
+
+# 所有节点执行：准备 CNI 二进制目录
+mkdir -p /opt/cni/bin
 ```
+
+> 后续各组件 systemd 单元中的 `ExecStart` 需指向 `/opt/kubernetes/bin/...`、`/opt/etcd/bin/...` 下的实际路径。
 
 ---
 

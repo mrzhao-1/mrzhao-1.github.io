@@ -49,6 +49,8 @@ tags = ["k8s", "kubernetes", "overview"]
 | 迁移环境配置 | 网卡 UUID、hosts、节点组件、etcd/apiserver/kubelet/kube-proxy | [迁移环境配置]({{< ref "/k8s/migration" >}}) |
 | 集群插件 | 插件镜像处理与部署 | [集群插件]({{< ref "/k8s/install-plugins" >}}) |
 | 容器化安装（kubeadm） | 补充的容器化安装方案 | [容器化安装]({{< ref "/k8s/install-containerized" >}}) |
+| 监控与告警 | Prometheus + Alertmanager + Grafana | [监控与告警]({{< ref "/k8s/monitoring" >}}) |
+| ELK 日志系统 | ECK + Filebeat + Kafka + Logstash | [ELK 日志系统]({{< ref "/k8s/elk" >}}) |
 
 ---
 
@@ -65,5 +67,7 @@ tags = ["k8s", "kubernetes", "overview"]
 | 迁移环境配置 | [`k8s/migration.md`]({{< ref "/k8s/migration" >}}) | 节点迁移 |
 | 集群插件 | [`k8s/install-plugins.md`]({{< ref "/k8s/install-plugins" >}}) | 插件部署 |
 | 容器化安装 | [`k8s/install-containerized.md`]({{< ref "/k8s/install-containerized" >}}) | kubeadm |
+| 监控与告警 | [`k8s/monitoring.md`]({{< ref "/k8s/monitoring" >}}) | Prometheus/Alertmanager/Grafana |
+| ELK 日志系统 | [`k8s/elk.md`]({{< ref "/k8s/elk" >}}) | ECK/Filebeat/Kafka/Logstash |
 
 建议按「基础环境 → 二进制安装 → 组件配置 → 高可用 → 迁移 → 插件」的顺序阅读，容器化安装可独立参考。

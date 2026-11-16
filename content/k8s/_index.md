@@ -22,5 +22,7 @@ tags = ["k8s", "kubernetes", "guide"]
 - [迁移环境配置]({{< ref "migration" >}}) —— 网卡 UUID、hosts、节点组件、etcd/kubelet 等。
 - [集群插件]({{< ref "install-plugins" >}}) —— 插件镜像处理与部署。
 - [容器化安装（kubeadm）]({{< ref "install-containerized" >}}) —— 补充的容器化安装方案。
+- [监控与告警]({{< ref "monitoring" >}}) —— Prometheus + Alertmanager + Grafana。
+- [ELK 日志系统]({{< ref "elk" >}}) —— ECK + Filebeat + Kafka + Logstash。
 
 > 说明：github-style 主题的 `list.html` 只渲染子页面列表，不渲染本页正文。完整的「主文档」内容请阅读 [总览与主文档]({{< ref "/post/k8s-guide" >}})。
