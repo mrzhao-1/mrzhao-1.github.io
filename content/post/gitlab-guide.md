@@ -10,7 +10,7 @@ tags = ["gitlab", "devops", "overview"]
 
 # GitLab 运维指南（总览）
 
-本文档是 GitLab CE（社区版）运维系列文档的**主文档**。第一章整体介绍 GitLab 的组件与架构；第二章做平台选型对比；第三章引导至架构与 IO 流程、功能全景与 Merge Request 全流程三个独立文档；第四章按部署方式、组件配置、备份恢复、数据迁移与平台使用展开，其中「成体系」的模块被拆分为独立文档，本文以引用（`ref`）的方式引导到对应分文档。
+本文档是 GitLab CE（社区版）运维系列文档的**主文档**。第一章整体介绍 GitLab 的组件与架构；第二章做平台选型对比；第三章引导至架构与 IO 流程、功能全景、Merge Request 全流程与进阶高级功能四个独立文档；第四章按部署方式、组件配置、备份恢复、数据迁移与平台使用展开，其中「成体系」的模块被拆分为独立文档，本文以引用（`ref`）的方式引导到对应分文档。
 
 > 本文所有示例中的域名、密码、令牌、IP 等均为占位符或示例值，实际使用请替换为你自己的环境信息。
 
@@ -101,6 +101,7 @@ GitLab 的架构、功能全景与 IO 流程拆分为三个独立文档：
 | 架构与 IO 流程 | 组件架构图、数据流与各类功能的管理/业务流程 | [GitLab 架构与 IO 流程]({{< ref "/gitlab/architecture" >}}) |
 | 功能全景与版本沿革 | 全部功能分类与主要功能引入版本 | [功能全景与版本沿革]({{< ref "/gitlab/features" >}}) |
 | Merge Request 全流程 | 从编辑提交到合并发布的完整业务流 | [Merge Request 全流程]({{< ref "/gitlab/merge-request" >}}) |
+| 进阶：高可用与高级功能 | 数据库高可用、Gitaly Raft、ES 替代、模板仓库 | [GitLab 进阶]({{< ref "/gitlab/advanced" >}}) |
 
 ---
 
@@ -130,6 +131,7 @@ GitLab 的架构、功能全景与 IO 流程拆分为三个独立文档：
 | 架构与 IO 流程 | [`gitlab/architecture.md`]({{< ref "/gitlab/architecture" >}}) | 架构图、数据流与管理/业务流程 |
 | 功能全景与版本沿革 | [`gitlab/features.md`]({{< ref "/gitlab/features" >}}) | 全部功能与版本沿革 |
 | Merge Request 全流程 | [`gitlab/merge-request.md`]({{< ref "/gitlab/merge-request" >}}) | 从编辑提交到合并发布 |
+| 进阶：高可用与高级功能 | [`gitlab/advanced.md`]({{< ref "/gitlab/advanced" >}}) | 数据库高可用/Raft/ES/模板仓库 |
 | 安装 · Omnibus | [`gitlab/install-omnibus.md`]({{< ref "/gitlab/install-omnibus" >}}) | Omnibus 部署安装 |
 | 安装 · Docker | [`gitlab/install-docker.md`]({{< ref "/gitlab/install-docker" >}}) | Docker 部署安装 |
 | 安装 · Kubernetes | [`gitlab/install-k8s.md`]({{< ref "/gitlab/install-k8s" >}}) | K8s 部署安装 |
